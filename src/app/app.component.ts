@@ -1,13 +1,24 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet],
+  imports: [CommonModule, FormsModule],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  title = 'angular18';
+
+  tarea: string = '';
+  lista: string[] = [];
+
+  agregar() {
+    if (this.tarea.trim() !== '') {
+      this.lista.push(this.tarea);
+      this.tarea = '';
+    }
+  }
+
 }
